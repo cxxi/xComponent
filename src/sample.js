@@ -33,3 +33,5 @@ export default class xSample extends xComponent
 		return this
 	}
 }
+
+xSample.define()

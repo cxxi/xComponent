@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict'
-const fs = require('fs')
-const cli = (async _ => {
+import { existsSync, readFileSync, writeFileSync } from 'fs'
+const CLI = ( _ => {
 	try {
 		const [,, ...args] = process.argv
 		const thrower = err => { switch(err) {
@@ -14,10 +14,10 @@ const cli = (async _ => {
 		if (args[0].startsWith('/')) thrower(1)
 		let path = args[0].split('/')
 		let name = path.pop()
-		if (!fs.existsSync(path.join('/'))) thrower(2)
-		if (fs.existsSync(`${args[0]}.js`)) thrower(3)
-		let sample = fs.readFileSync(`${__dirname}/src/sample.js`, 'utf8').replace('xSample', name)
-		fs.writeFileSync(`${args[0]}.js`, sample, 'utf8')
+		if (!existsSync(path.join('/'))) thrower(2)
+		if (existsSync(`${args[0]}.js`)) thrower(3)
+		let sample = readFileSync(`${import.meta.url.slice(7, - 7)}/sample.js`, 'utf8').replaceAll('xSample', name)
+		writeFileSync(`${args[0]}.js`, sample, 'utf8')
 		console.log(`The xComponent with name ${name} has created successfully.`)
 	} catch(e) { console.error(e) }
 })()
