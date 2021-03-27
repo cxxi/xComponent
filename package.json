@@ -1,0 +1,23 @@
+{
+  "name": "xcomponent",
+  "type": "module",
+  "version": "0.0.5",
+  "description": "Light HTML Custom Elements creation with lifecycle, renderEngine and eventManager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "xnew": "./src/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cxxi/xComponent.git"
+  },
+  "author": "Louis-Antoine Lumet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cxxi/xComponent/issues"
+  },
+  "homepage": "https://github.com/cxxi/xComponent#readme"
+}
